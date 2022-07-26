@@ -1,0 +1,3 @@
+git init --bare  - esse parametro indica que esse repositorio é puro , só contém as alterações dos arquivos ,
+                   não contém uma copia de cada um dos arquivos fisica , de forma que eu consiga acessar tão facil assim,
+                   porém isso traz umas certa facilidades que agente adicione esse repositorio como remoto em outro 

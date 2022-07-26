@@ -1,0 +1,46 @@
+Corrigindo nome do curso Docker
+
+vou no (vscode) altero e salvo
+vou no git bash e dou comando
+git status / git add index.html / git commit -m "Corrindo nome do curso Docker" / 
+
+obs: agora vi que minha branch titulo tbm está finalizada 
+e quero trazer meus dados da minha branch titulo pra ka aí dou o comando 
+( git merge titulo ) dou enter , aí ele vai criar pra gente um commit de merge - ou seja,
+um commit de junção de 2 branch
+
+observação
+
+Merge branch 'titulo' - => aqui posso editar essa mensagem se eu quizer , caso eu não queira esse editor aqui é o (vim)
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+~
+
+sem muito detalhes pra eu salvar essa mensagem e confirmar 
+digito :x  /  e dou enter
+
+aí blz então fez um merge ,uma junção e agora eu tenho aqui na minha 
+branch master os dados do titulo alterado
+
+agora se der ( git log ) eu não tenho aqueles 2 commit separados, eu tenho um commit de ( merge )
+obs: ( Merge branch 'titulo') 
+
+então como sera que eu posso fazer com que ao invez de o git criar esse commit novo aqui ,
+pegar esses 2 commit e adicione na minha ( brach master ) pegar os 2 commit sem criar os ( commit de merge )
+
+Agora que entendemos como separar o desenvolvimento em linhas ("ramos") diferentes, é hora de trazer estas modificações para a master,
+que é a nossa branch "padrão".
+( Como podemos fazer o merge da branch titulo para a branch master? )
+
+observação
+
+( git checkout master ) e ( git merge titulo )
+Alternativa correta! Desta forma colocaremos o HEAD na branch master, ou seja, 
+faremos com que o nosso código esteja no estado que o deixamos com o último commit na master. 
+Depois, uniremos o trabalho da branch titulo com a branch atual (master).
+
+
+

@@ -1,0 +1,5 @@
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (master)
+$ cd "C:\Users\nelio\Documents\projetogit-e-github\nelio"
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$

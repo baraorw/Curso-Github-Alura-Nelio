@@ -1,0 +1,174 @@
+juntando trabalhos
+
+git merge Lista - obs: mostrou um conflito
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+abrir vscode corrigir e ver o que quero manter no caso a lista de vicius ou melhor nelio e salvo
+abro o teminal vscode e dou comando (git status) ai vai aparecer
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   index.html
+
+git add index.html - para corrigir depois dou 
+git commit - ai ele vai finalizar o merge e que o git vai saber ,vai perceber que eu 
+finalizei e corrigi os conflitos e agora ele vai realizar os commit de merge
+
+git log --graph
+git log --graph
+*   commit babb30f74732bf24cdef58b4bb95864ffe5a2347 (HEAD -> master)
+|\  Merge: 65482e1 c1da453
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Tue Jul 19 19:45:35 2022 -0300
+| |
+| |     Merge branch 'Lista'
+| |
+| * commit c1da4533017e93130f2052b8d6a003b5efcca60c (lista)
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Sun Jul 17 21:24:23 2022 -0300
+| |
+| |     Atualizando nome do curso Docker
+| |
+| * commit eba47647f08cfe6646026e133a08b0f292579a5f
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Thu Jul 14 21:30:11 2022 -0300
+| |
+| |     adicionando Curso de Kubernetes
+| |
+* | commit 65482e18cc057ec71bc0959fdd6f7eddb89d5b01
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Thu Jul 14 22:17:19 2022 -0300
+| |
+| |     Corrigindo nome do curso docker
+| |
+* | commit 9f995623d084adb9829e3aa78e19bf50ecc16c82
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Sun Jul 17 20:14:06 2022 -0300
+| |
+| |     Cursos com Letras Maiúscula
+| |
+* | commit c30edfb7544d5ecf3ee85fc85b13a8177356b11e
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Thu Jul 14 21:09:04 2022 -0300
+| |
+| |     Lista no ínicio do título
+| |
+* | commit 6a68ad69e7ab8372cc51f4c834612e3d626bc10f
+|/  Author: baraorw <neliodejesus@outlook.com>
+|   Date:   Thu Jul 14 21:05:43 2022 -0300
+|
+|Alterando título da página
+ai eu tenho aqui o merge da minha branch Lista
+
+agora
+(git push local master)ou git push "C:\Users\nelio\Documents\projetogit-e-github\servidor"
+fatal: 'C:UsersnelioDocumentsprojetogit-e-githubservidor/' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (master)
+$ git push "C:\Users\nelio\Documents\projetogit-e-github\servidor"
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 959 bytes | 959.00 KiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0), pack-reused 0
+To C:\Users\nelio\Documents\projetogit-e-github\servidor
+   65482e1..babb30f  master -> master
+
+agora imagina que o nelio está trabalhando em outro projeto em uma outra coisa crrigindo aqui
+o curso de (vagrant) aí entrar no vscode e corrige o (curso de vagrant) e salva
+
+depois me logar como nelio
+git status - vai aparecer abaixo
+ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+no changes added to commit (use "git add" and/or "git commit -a") e depois
+
+git add .    
+
+git commit -m "Corrigindo curso de vagrant" vai aparecer abaixo
+[master d2c0c13] Corrigindo curso de vagrant
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+e enviar essas informações dando comando 
+git push local master  ou  git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" 
+
+e olha o que aconteceu 
+git push "C:\Users\nelio\Documents\projetogit-e-github\servidor"
+To C:\Users\nelio\Documents\projetogit-e-github\servidor
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'C:\Users\nelio\Documents\projetogit-e-github\servidor'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+enquanto nelio tava trabalhando a simone enviou uma informação ou seja enviou aquele (commit de merge),
+eu preciso então antes de enviar quaisquer dados, antes de enviar qualquer alteração minha, 
+eu preciso garantir que eu to trabalhando com a (versão mais nova do codigo) então eu preciso antes de 
+enviar (trazer esse codigo de volta) dando comando 
+
+git pull local master ou 
+git pull "C:\Users\nelio\Documents\projetogit-e-github\servidor" 
+observação - git pull - para ver se tem alguma alteração no codigo estando logado como simone e depois
+git config --local user.name "simone" - para saber que quem tá commitando é simone e a partir daqui todos
+os commit que forem feito nesse repositorio , vão pertencer a simone
+
+
+observação ctrl + l = limpa a tela sem apagar as informações de cima
+branchs - são linhas de desenvolvimento
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

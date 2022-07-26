@@ -1,0 +1,164 @@
+git rebase titulo - com isso o git vai pegar os commit da minha 
+(branch titulo) e atualizar minha (branch master) ,então quando executar o git atualiza,
+traz todos os commit das minhas (brach titulo) para a (master) e depois adiciona o commit 
+que tinha na master na frente de todos esses.então atualizei o branch e gero em uma unica linha
+sem essas confusões ou seja sem esses (commit de merge)
+
+agora se eu der um comando 
+(git log) agora,vai mostrar meus commit de merge 
+ex: merge branch 'titulo' 
+
+ Merge branch 'titulo'
+
+commit dee6588ca2b6c0bd3c7e755a50193ee9fdde4fc8
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Thu Jul 14 22:17:19 2022 -0300
+
+Corrigindo nome do curso docker
+
+commit c30edfb7544d5ecf3ee85fc85b13a8177356b11e (titulo)
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Thu Jul 14 21:09:04 2022 -0300
+
+Lista no ínicio do título
+
+commit 6a68ad69e7ab8372cc51f4c834612e3d626bc10f
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Thu Jul 14 21:05:43 2022 -0300
+Alterando título da página
+
+(git log --graph)
+agora se eu der comando   (git log --graph)
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git log --graph
+*   commit 6d9ce5dd593625536bf719888e7b2ad128ecfbb6 (HEAD -> master)
+|\  Merge: dee6588 c30edfb
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Thu Jul 14 22:18:12 2022 -0300
+| |
+| |     Merge branch 'titulo'
+| |
+| * commit c30edfb7544d5ecf3ee85fc85b13a8177356b11e (titulo)
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Thu Jul 14 21:09:04 2022 -0300
+| |
+| |     Lista no ínicio do título
+| |
+| * commit 6a68ad69e7ab8372cc51f4c834612e3d626bc10f
+| | Author: baraorw <neliodejesus@outlook.com>
+| | Date:   Thu Jul 14 21:05:43 2022 -0300
+| |
+| |     Alterando título da página
+| |
+* | commit dee6588ca2b6c0bd3c7e755a50193ee9fdde4fc8
+|/  Author: baraorw <neliodejesus@outlook.com>
+|   Date:   Thu Jul 14 22:17:19 2022 -0300
+|
+|       Corrigindo nome do curso docker
+|
+* commit 89120939edddd004b04af74313b4e4f5ed1f4588 (origin/master)
+| Author: baraorw <neliodejesus@outlook.com>
+| Date:   Tue Jul 12 19:20:52 2022 -0300
+|
+|     Renomeando curso de integração contínua
+|
+* commit 5523d20e4404097140a670fdcd22bfc23ee4a704
+| Author: baraorw <neliodejesus@outlook.com>
+| Date:   Sun Jul 10 23:23:01 2022 -0300
+|
+|     Renomeando curso de integração Contínua
+|
+* commit 074c14700e592bc0fcee3681f9c0c4437ef3ad4f
+| Author: baraorw <neliodejesus@outlook.com>
+| Date:   Sat Jul 9 23:08:34 2022 -0300
+|
+|     Adicionando .gitignore
+|
+* commit 20ed5e4790648604f8b2d928d41e6be7ef9e236e
+| Author: baraorw <neliodejesus@outlook.com>
+| Date:   Sat Jul 9 21:47:37 2022 -0300
+|
+|     salvando arquivo inde.html
+|
+* commit 12af25716a4cc66e9ea3dce3b329514d33d6323c
+| Author: baraorw <neliodejesus@outlook.com>
+| Date:   Fri Jul 8 17:13:21 2022 -0300
+|
+|     Acento adicionado no curso de integração contínua
+|
+* commit cb1495379adc818d2737bd2f6047c72f2d780705
+  Author: baraorw <neliodejesus@outlook.com>
+  Date:   Fri Jul 8 13:32:43 2022 -0300 index.html
+
+com esse comando ele mostra as linhas especificas de desenvolvimento , 
+ele mostra que aqui, eu estava numa outra linha e que depois eu fiz um (merge)
+ou seja juntei essas linhas de desenvolvimento
+
+fazendo alteração da minha branch de titulo 
+do comando (git checkout titulo) no terminal git bash / abrir vscode / 
+alterar linha de titulo exemplo :<title>Lista de Cursos de DevOps da Alura</title> / salvo /
+abro terminal git bash / git add index.html / git commit -m "Cursos com Letras Maiúscula" /
+agora eu quero ir para minha (branch master) dou comando / git checkout master / e atualizar; 
+
+trazer os commit da (branch titulo) para minha (branch master) então fazer
+(git rebase titulo) e olha só , trouxe os dados... 
+observação :o (git rebase) atualiza a minha branch, 
+mais mantém o trabalho dela como ultimo trabalho sendo feito , 
+para que não gere esse tipo de confusão entre (branchs)
+
+então com isso dou comando 
+(git push local master) ou 
+(git push "C:\Users\nelio\Documents\projetogit-e-github\servidor") então tudo atualizado
+
+
+posso então me logar como (simone)e dou comando
+git pull local master ou
+git pull "C:\Users\nelio\Documents\projetogit-e-github\servidor"
+git checkout lista - pois simone estava trabalhando na lista - depois abre vscode pra ela atualizar 
+no vscode atualiza a linha lista ex:<li>Docker: Criando contaíners sem dor de cabeça</li> - depois salva
+e abre terminal git bash.
+git add index.html / git commit -m "Atualizando nome do curso Docker" ok 
+vai aparecer
+[lista c1da453] Atualizando nome do curso Docker
+ 1 file changed, 1 insertion(+), 1 deletion(-)   -   
+blz commit realizado - dou um 
+git log - para me mostra e garantir se foi atualizado
+
+Rebase vs Merge
+PRÓXIMA ATIVIDADE
+Já sabemos como trazer o trabalho de outra branch e unir com a branch atual. 
+Conhecemos duas formas de fazer isso: merge e rebase.
+Neste cenário, qual a diferença entre os comandos rebase e merge?
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

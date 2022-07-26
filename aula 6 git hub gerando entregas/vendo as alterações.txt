@@ -1,0 +1,346 @@
+git log --oneline
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git log --oneline
+b7f3d0c (HEAD -> master) Alterando nome do curso de Ansible
+49b5c85 Alterando o nome do curso de Kubernetes
+3eac439 Revert "Mudando nome do curso de Ansible"
+8512526 Mudando nome do curso de Ansible
+d2c0c13 (origin/master) Corrigindo curso de vagrant
+babb30f Merge branch 'Lista'
+c1da453 Atualizando nome do curso Docker
+65482e1 (lista) Corrigindo nome do curso docker
+9f99562 (titulo) Cursos com Letras Maiúscula
+eba4764 adicionando Curso de Kubernetes
+c30edfb Lista no ínicio do título
+6a68ad6 Alterando título da página
+8912093 Renomeando curso de integração contínua
+5523d20 Renomeando curso de integração Contínua
+074c147 Adicionando .gitignore
+20ed5e4 salvando arquivo inde.html
+12af257 Acento adicionado no curso de integração contínua
+
+se eu quizer a diferença do momento em que agente trouxe a lista atualizada lá da (simone) até agora
+exemplo ( babb30f Merge branch 'Lista' ) tudo o que foi modificado , todas as modificações de uma vez só,
+como eu que eu fazer .... 
+existe um comando bem interessante bem poderoso do git que é o 
+( git diff ) - esse git diff mostra a diferença entre os códigos , 
+só que se eu executar aqui no (terminal git bash) não mostra nada , ele não vai me mostra certo ,porque!
+por enquanto não tem nada alterado no nosso código que não foi salvo , então eu quero mostra a diferença entre
+2 commits , então preciso informar quais commits; no caso vai ser esse aqui, copio e colo lá embaixo 
+( babb30f Merge branch 'Lista' ) no caso fica assim exemplo abaixo
+
+( git diff babb30f..até ; e esse até com o git eu informo utlizando ===> .. 
+até esse aqui que é nosso commit atual ( b7f3d0c (HEAD -> master) Alterando nome do curso de Ansible  )
+no caso só o rash ( b7f3d0c ) certo ,que é o ultimo commit que agente realizou, 
+
+vai ficar assim o comando 
+( git diff babb30f..b7f3d0c ) - e dou enter , com esse comando agente consegue vizualizar todas as 
+alterações que foram feitas
+
+vai ficar assim
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git diff babb30f..b7f3d0c
+diff --git a/index.html b/index.html
+index e93a74d..2b596d1 100644
+--- a/index.html
++++ b/index.html
+@@ -6,11 +6,11 @@
+ </head>
+ <body>
+     <ul>
+-        <li>Vagrant</li>
++        <li>Vagrant:Gerenciando máquinas virtual</li>
+         <li>Docker: Criando conteiners sem dor de cabeça</li>
+-        <li>Ansible</li>
+-        <li>Curso Integração Contínua:Maturidade e produtividade no Desenvolvimento de Sofware</li>
+-        <li>kubernetes</li>
++        <li>Ansible: Sua Infraestrutura como código</li>
++        <li>Integração Contínua:Maturidade e produtividade no Desenvolvimento de Sofware</li>
++        <li>kubernetes: Introdução a orquestração de conteiners</li>
+     </ul>
+ </body>
+ </html>
+\ No newline at end of file
+
+bem então agente consegue ver todas as alterações de diversos commits de uma vez só,
+além disso caso eu esteja modificando alguma coisa 
+exemplo : to trabalhando no código no vscode,e vou adicionar um curso novo por exemplo , e eu tive que parar,
+poxa deu a hora do almoço ou eu precisei ir para uma reunião, e eu já tinha alterado alguns arquivos,
+aí quero ver tudo que foi alterado , 
+eu posso simplesmente executar o comando
+
+( git diff ) - que ele mostra o que foi alterado e que ainda não foi commitado, 
+em que ainda não adicionei pra ser commitado .
+mais apartir do momento que eu adiciono exemplo:
+
+(  git add index.html ) e 
+( git diff ) - não mostra mais o que tem de diferente ;então eu consigo ver a diferença entre 2 commit 
+ou ver a diferença de um arquivo que eu estou editandi ainda, mais não adicionei pra commitar .
+
+vou aqui trazer esse arquivo de volta dando comando 
+( git status ) vai aparecer assim exemplo abaixo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+depois ( git reset HEAD index.html ) 
+depois ( git status ) então ele ta aqui mpronto pra ser adicionado pra commitar ( modified index.html )
+aí eu quero disfazer essas alterações 
+dando comando
+( git checkout -- index.html )
+
+então assim agente consegue analizar com mais controle todas as alterações que foram adicionadas durante 
+o desenvolmimento de um projeto, agente consegue ter um controle mais fino disso , vendo a diferença entre 2 commit,
+vendo commits bem espaçados, entre o que agente ta fazendo agora e o que já foi commitado e etc...
+
+então co o git diff agente consegue ver todas as alterações, mais depois de ter visto todas as alterações e garantido
+ não é isso mesmo! não tem bug! 
+como será que eu posso gerar uma nova versão por exemplo; 
+á essa é a relese a versão 0.1 , como eu posso informar isso com o git, marcar , 
+tipo cravar uma bandeira e dizer esse commit aqui marca a realese 0.1 ; vamos ver isso no proximo video ...
+
+
+Exibição das mudanças com o diff
+PRÓXIMA ATIVIDADE
+Com o comando git diff, nós vimos que é possível visualizarmos as mudanças realizadas em determinado código.
+Podemos ver as diferenças entre commits, branches, etc.
+Como o git diff exibe as mudanças no código?
+
++ linha adicionada
+- linha removida
+- linha modificada (versão antiga)
++ linha modificada (nova versão)
+
+Alternativa correta! O sinal de subtração (-) antes da linha indica que ela não está mais presente no arquivo. 
+Já o sinal de adição (+) mostra que é uma linha nova. 
+Alterações são representadas por uma remoção e uma adição de linha.
+________________________________________________________________________________________________________________
+
+TAGS E RELEASES
+AQUI NESSE CENARIO FINALIZAMOS O CÓDIGO 
+então eu quero gerar uma versão quero dizer olha , nesse commit seja cravado uma bandeira 
+marcado aquele chech point , quero que marque que nesse ponto aqui, 
+nesse rash ( 1cad679530a56129aaed15832d51f4588521e4d4 ) seja gerado uma versão 0.1 por exemplo
+
+então dando comando ( git log -n 2 ) vai me mostrar meus 2 ultimos commit 
+vai ficar assim; exemplo abaixo
+
+$ git log -n 2
+commit 1cad679530a56129aaed15832d51f4588521e4d4 (HEAD -> master, origin/master)
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Sun Jul 24 18:55:45 2022 -0300
+( Dando espaço no curso de integração Contínua )
+
+commit b7f3d0c0bb842f7b6217f756d9d8d5d57a8f06a6
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Wed Jul 20 23:04:51 2022 -0300
+( Alterando nome do curso de Ansible )
+
+em varios outros controle de conteudo ,não de versão. 
+existe um conceito de ( TAG ) por exemplo se vc for criar um blog , vc tem tags pra marcar
+po esses especificos pertence a uma categoria.
+agente pode utilizar no git 1 conceito bem parecido tbm chamado de tags , 
+uma tag marca um ponto na aplicação, um ponto que não pode ser modificado ,
+um ponto fixo ou seja eu vou realmente cravar uma bandeira e informar um (marco na minha aplicação)
+como por exemplo um lançamento de uma versão , 
+e a versão 0.1 por exemplo depois de lançada nunca mais é modificada ;
+qualquer modificação que acontecer vai ser adicionada na versão 0.2 por exemplo 
+então a tag serve exatamente pra issi ,pra gente definir um ponto que não muda mais,
+uma ponto que não evolui mais na nossa aplicação. 
+
+a então quer dizer que meu código não vai ser mais editavel; não,não é isso, eu só vou criar um ponto
+em que eu possa navegar pra ele, posso chegar até esse ponto , eter um código exatamente naquele estado,
+eu vou ter a certeza que aquele estado por exemplo :da vesão 0.1 , então vamos lá ....
+
+como criar uma (tag) - eu primeiro eu preciso informar, 
+olha git eu estou adicionando uma tag emtão , utlizo o comando 
+
+( git tag -a v0.1.0 ) - essa vai ser a nossa versão, isso não é uma regra de colocar assim (v0.1.0)
+vc pode escrever de outro jeito se vc quizer ,
+posso tbm adicionar uma msn pra essa tag exemplo abaixo
+
+(  git tag -a v0.1.0 -m "Lançando a primeira versão (BETA) da aplicação de cursos" )
+então qundo der um enter agora pronto eu gerei um TAG eu gerei um PONTO , eu gerei um MARCO na nossa aplicação
+
+(obs:) vai ficar assim exemplo abaixo 
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+
+se eu executar agora o comando 
+( git tag ) - ele mostra todas as tags que agente tem na nossa aplicação disponiveis, que por enquanto é só uma
+vai ficar assim exemplo abaixo
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git tag
+v0.1.0
+
+e agora uma coisa bem interessante que onde eu queria chegar :observação abaixo
+se eu quizer,eu consigo, posso fazer o push do master ou de qualquer outro branch, então dou comando 
+( git push local master ) ou ( git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" ) 
+que é , meu servidor local.
+
+vai ficar assim exemplo abaixo 
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git push "C:\Users\nelio\Documents\projetogit-e-github\servidor"
+Everything up-to-date
+
+ou tbm posso utilizar comando 
+( git push local v0.1.0 ) ou ( git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" v0.1.0 )
+que é meu ( sevidor com a versão da minha tag v0.1.0 ) 
+vai ficar assim exemplo abaixo 
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" v0.1.0
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 208 bytes | 208.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:\Users\nelio\Documents\projetogit-e-github\servidor
+ * [new tag]         v0.1.0 -> v0.1.0   
+( ok )
+
+agora executar ( git remote -v ) - pra gente se lembrar de um detalhe a gente tá usando o github,
+nois temos um repositorio local chamado origin , que faz mensão ao git hub , 
+então agora eu vou enviar além do master, dando o comando exemplo abaixo, 
+
+( git push origin master ) vai ficar assim exemplo abaixo
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git push origin master
+]Everything up-to-date .... e depois dar comando veja abaixo
+
+( git push origin v0.1.0 ) - que vai ficar assim exemplo abaixo
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git push origin v0.1.0
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 208 bytes | 208.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/baraorw/curso-alura-github.git
+ * [new tag]         v0.1.0 -> v0.1.0
+ 
+blz vou enviar ,mais como será que vizualizo tegs lá no git hub , 
+( essa parte que é interessante ) aqui queria chegar 
+abrir git hub / ver atualizações / ver tags / baixar como zip / na area de trabalho extrair / 
+abrir arquivo index.html / abrir com / vscode / 
+
+e repara que quando abrir vai está lá em cima do codigo o arquivo index.html com a tag v0.1.0 ;
+então com isso a gente gera uma versão , agente gera um marco na nossa aplicação , um ponto historico,
+que já não é um conceito de versão , agente gerou aqui uma (RELEASES).
+que pode inclusive se enviada para uma outra pessoa , vc manda pra alguém que queira usar o seu sistema,
+essa pagina aqui de (releases) - https://github.com/baraorw/curso-alura-github/releases  ( e pronto )
+_______________________________________________________________________________________________________________
+
+Tags no GitHub
+PRÓXIMA ATIVIDADE
+
+Vimos no último vídeo como gerar versões, ou marcos interessantes em nosso sistema de controle de versões.
+Que resultado gera o envio de uma tag para o GitHub?
+
+Gera uma Release, ou seja, conseguimos baixar um arquivo compactado com o nosso código neste ponto
+Alternativa correta! O GitHub nos dá a possibilidade de baixar um arquivo compactado contendo o código 
+no estado em que a tag foi gerada.
+_______________________________________________________________________________________________________________
+
+Consolidando o seu conhecimento
+PRÓXIMA ATIVIDADE
+
+Chegou a hora de você pôr em prática o que foi visto na aula. Para isso, execute os passos listados abaixo.
+1) Execute o comando git log -p para ver, junto a cada commit, as alterações nele realizadas;
+2) Execute agora o comando git log --oneline;
+3) Execute o comando git diff {hash do commit de merge com lista}..{hash do último commit realizado};
+4) Execute alguma (pequena) alteração no index.html;
+5) Execute o comando git diff e veja esta alteração;
+6) Desfaça esta última alteração;
+7) Execute o comando git tag -a v0.1.0 para criar uma tag no seu código;
+8) Execute o comando git push origin v0.1.0 para enviar esta tag para o GitHub;
+9) Abra a página do repositório do GitHub que você criou e confira a aba de Releases.
+__________________________________________________________________________________________________________________
+
+O que aprendemos?
+PRÓXIMA ATIVIDADE
+
+Nesta aula, aprendemos:
+Que é possível visualizar quais alterações foram realizadas em cada arquivo, com o comando git diff;
+Que, digitando apenas git diff, vemos as alterações em nossos arquivos que não foram adicionadas para commit 
+(com git add);
+
+Que é possível comparar as alterações entre duas branches com git diff <branch1>..<branch2>
+
+Que é possível comparar as alterações feitas entre um commit e outro, através do 
+comando git diff <commit1>..<commit2>;
+
+Que o Git nos possibilita salvar marcos da nossa aplicação, como por exemplo, lançamento de versões, 
+através do git tag;
+
+Que o comando git tag -a é utilizado para gerar uma nova tag;
+As Releases do GitHub, que são geradas para cada tag do Git criada em nosso repositório.
+________________________________________________________________________________________________________________
+
+Dica de estudante
+PRÓXIMA ATIVIDADE
+
+Vocês devem ter notado que no curso as branches foram iniciadas na master e agora o padrão do GitHub é a main. 
+Mas por que isso acontece?
+Vamos explicar: o curso foi criado em 2019 e no ano de 2020 o GitHub anunciou o seguinte:
+
+“Em 1º de outubro de 2020, qualquer novo repositório que você criar usará o main como o branch padrão, 
+em vez do master”
+
+Isso ocorreu porque “master” é um termo não inclusivo; é uma palavra que é utilizada habitualmente para 
+comunicações em eletrônica, por exemplo: onde se tinha o dispositivo “master” ou “mestre” que envia os 
+comandos para o “slave” ou “escravo” que responde os processos. Caso queira ler mais sobre.
+
+Tendo em vista isso, juntamente com o caso de George Floyd e o movimento Black Lives Matter, 
+as empresas de tecnologia foram abandonando esses termos não inclusivos. 
+O GitHub foi uma das primeiras organizações a mostrar apoio a essas mudanças ao anunciar 
+a troca de master para main.
+
+Porém, a nomenclatura não interfere no aprendizado ao longo do curso, é importante destacar apenas 
+para evitar confusões. E caso você esteja na branch master querendo mudar para main, 
+pode rodar esses comandos no terminal ou Git Bash:
+
+git branch -m master main
+git push -u origin main
+
+E caso você queira conferir um conteúdo que já contém essa atualização, 
+confira também o Curso de Git e GitHub: repositório, commit e versões. Bons estudos!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

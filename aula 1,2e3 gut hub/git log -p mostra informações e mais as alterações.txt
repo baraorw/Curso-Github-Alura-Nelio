@@ -1,0 +1,78 @@
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git log
+commit ec09127ecf4872db0366e11151d6cfc5e0512ec7 (HEAD -> master)
+Author: Nélio de Jesus <neliodejesus@outlook.com>
+Date:   Thu Jul 7 17:22:16 2022 -0300
+Acento adicionado no curso de integração contínua
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git log --oneline
+ec09127 (HEAD -> master) Acento adicionado no curso de integração contínua
+c456530 numero 1 adicionado
+9735714 arquivo deletado
+8fa3156 Acento adicionado no curso de integração contínua
+f74baab Mudança acrescentanto nome git no final
+31c4116 Criando arquivo index.html com lista de cursos
+2f3b40c Adicionando .gitignore
+f5f1c33 Acento adicionado no curso de integração contínua
+a526a94 Criando arquivos index.html
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git log -p
+commit ec09127ecf4872db0366e11151d6cfc5e0512ec7 (HEAD -> master)
+Author: Nélio de Jesus <neliodejesus@outlook.com>
+Date:   Thu Jul 7 17:22:16 2022 -0300
+Acento adicionado no curso de integração contínua
+
+diff --git a/index.html b/index.html
+index 5897c03..b0728bb 100644
+--- a/index.html
++++ b/index.html
+@@ -9,7 +9,7 @@
+         <li>vagrant</li>
+         <li>Docker</li>
+         <li>Ansible</li>
+-        <li>Integração contínua 1</li>
++        <li>Integração contínua</li>
+     </ul>
+ </body>
+ </html>
+\ No newline at end of file
+
+commit c4565305e0603a2b86b6b51e924a49306f289288
+Author: Nélio de Jesus <neliodejesus@outlook.com>
+Date:   Thu Jul 7 17:12:56 2022 -0300
+
+    numero 1 adicionado
+
+diff --git a/index.html b/index.html
+index 2e7a1f9..5897c03 100644
+--- a/index.html
++++ b/index.html
+@@ -9,7 +9,7 @@
+         <li>vagrant</li>
+         <li>Docker</li>
+         <li>Ansible</li>
+-        <li>Integração contínua </li>
++        <li>Integração contínua 1</li>
+     </ul>
+ </body>
+ </html>
+\ No newline at end of file
+
+commit 9735714899a97494fde7e944b05f66a5b992843a
+Author: Nélio de Jesus <neliodejesus@outlook.com>
+Date:   Thu Jul 7 16:29:11 2022 -0300
+
+    arquivo deletado
+
+diff --git a/curso github alura.txt b/curso github alura.txt
+deleted file mode 100644
+index 5184fd3..0000000
+--- a/curso github alura.txt
++++ /dev/null
+@@ -1,51 +0,0 @@
+-gitdir - mostrar minha pasta que o git controle ,meu repositorio index.html
+-
+-git init - inicializar meu repositorio, vai informar aqui tem um repositorio
+

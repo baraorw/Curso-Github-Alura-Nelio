@@ -1,0 +1,39 @@
+PARA CRIAR UMA NOVA (branch) NO TERMINAL DIGITE
+
+git branch - vai aparecer master /
+git branch titulo /
+git branch - vai aparecer -master-titulo /
+git checkout titulo - vai aparecer switched to branch 'titulo' 
+
+ASSIM VAI APARECER
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git branch
+* master
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git branch titulo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git branch
+* master
+  titulo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git checkout titulo
+Switched to branch 'titulo'
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (titulo)
+
+PARA SAIR DA BRANCH (TITULO) PARA ENTRAR NA MINHA BRANCH (MASTER)
+git checkout master
+assim
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (titulo) - aqui branch titulo
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'. - ( que quer dizer - Seu branch está atualizado com 'origin/master'.)
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master) - aqui estou na master novamente 
+
+

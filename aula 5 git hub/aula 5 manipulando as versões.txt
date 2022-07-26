@@ -1,0 +1,425 @@
+ctrl+z no git
+1 - no vscode alterando uma linha de código eu dou comando no teclado ctrl+z para voltar o que tava antes
+savei e vizualizo a pagina e vejo que não ficou legal, mais repara que não fiz commit , nem git add ,
+eu só editei o código e aqui é uma linha só , um arquivo só poderia dar ctrl+z para voltar o que tava antes.
+
+agor aimagina um projeto grande onde eu faço varias alterações, para ver , testar 
+e vejo que não é o que eu quero ( aí precisaria ir de arquivo a arquivo dando control z em todos,
+imagine que as alterações que fiz , eu fiz ontem e só to vendo hoje e não gostei será que o git me ajuda a 
+desfazer alterações
+
+abrir terminal git bash / logado como nelio / dou um git status / repara que tem modificações nesse 
+arquivo mais repara que ainda não foram marcados para commit, ainda não foram definidas, informadas 
+para o git que eu quero commita-lás obs:para fazer isso eu precisaria fazer o (git add) , mais caso
+eu queira descartar as alterações eu posso chamar o 
+(git checkout -- e o que eu quero remover ou desfazer) 
+
+(observação) o git checkout ele serve para navegar em estados do nosso repositorio , seje atravez 
+de branchs ou desfazendo modificações no arquivo, então se eu quero simplesmente desfazer essa linha
+eu posso executar ( git checkout -- index.html ) e dar enter / e se eu der ( git status ) agora 
+não tem nada para commitar 
+
+observação
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git checkout -- index.html
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+nothing to commit, working tree clean
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+e se eu olhar agora no ( vscode  -  <li>Ansible</li> ) a minha alteração , o meu teste foi desfeito.
+antes de fazer alteração   - <li>Ansible: Infraestrutura como código</li>
+depois de fazer alteração  - <li>Ansible</li>
+
+porém imagina agora que agente fez as alterações ( <li>Ansible: Infraestrutura como código</li> ) e salvei
+e antes mesmo de testar, eu já fui lá e pensei no ( git bash ) como eu vou commitar isso eu fiz o 
+( git add index.html ) e aí vc para e pensa ,pô antes de commitar eu preciso testar ,aí vc vai lá testa 
+e vê que não ficou legal,  aí como será que posso desfazer uma alteração uma alteraçlão 
+que já foi marcada para commitar...
+
+ai dou um git status para ver se proprio git traz algumas informações pra gente
+git status ( já informou )
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed: =====> já informou mudanças a serem commitadas , a serem enviadas
+(use "git restore --staged <file>..." to unstage) index.html  /  =====> utilize git reset HEAD /
++ <file> = + nome do arquivo, pra desfazer essa marcação, pra desmarcar esse arquivo como algo 
+que precisa ser commitado, então vamos fazer isso dando comando ( git reset HEAD index.html )
+
+git reset HEAD index.html
+Unstaged changes after reset:
+M       index.html
+
+e aqui eu passo pra ele um estado ele que deve passar a ficar, em que estado ele vai ficar
+ele vai ficar no meu (HEAD) ==> pro meu local de trabalho, pro estado em que eu ainda to trabalhando
+é isso que o (HEAD) significa , agora se eu dar um (git status) as alterações continuam lá ,
+mais não estão marcados para commit , então se eu quizer disfazer dou comando
+( git checkout -- index.html ) e pronto não tenho mais nada para commitar 
+
+para confirmar e ver como está o estado de como se encontra dou 
+um ( git status ) e pronto minha alteração foi desfeita 
+( para saber abrir vscode e ve o código que é ( <li>Ansible</li> ).
+
+
+agora imagina o pior dos casos fui no vscode e fiz alteração no código
+( fiz aqui alteração / <li>Ansible</li> ) / para - <li>Ansible: Infraestrutura de código</li> salvei
+e entrei no git bash e dei comando 
+
+( git add index.html )
+( git commit -m "Mudando nome do curso de Ansible" ) fica assim
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git add index.html
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git commit -m "Mudando nome do curso de Ansible"
+[master 8512526] Mudando nome do curso de Ansible
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master) mais aí testando eu vi que 
+introduzi um bug ,vi que esse código não era pra ser commitado,como será que eu posso desfazer um commit,
+dar um (control z) em um (commit) que já foi feito 
+
+obsevação dou um ( git log ) vou no rash - 8512526b5edd113cc1d37f8cc98d13005b4e252f copio e colo lá em baixo
+dou o comando
+git revert 8512526b5edd113cc1d37f8cc98d13005b4e252f / que é o comando + o rash
+aí vai simplesmente disfazer o commit que eu informar aqui , vai disfazer ,vai criar um novo commit,
+disfazendo as alterações que esse commit fez ; então se eu clicar aqui, der um enter,
+ele vai gerar um novo commit com essa mensagem 
+( Revert "Mudando nome do curso de Ansible" ) eu posso alterar essa mensagem aqui se eu quizer, depois de 
+eu ter alterado dou  ( :x ) pra sair , pra salvar e blz
+
+agora repara no nosso ( git log ) nos temos 2 commit 
+
+1 commit mudando o nome 
+commit 8512526b5edd113cc1d37f8cc98d13005b4e252f
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Wed Jul 20 20:32:37 2022 -0300
+Mudando nome do curso de Ansible
+
+2 e o outro que revert o Mudando o nome
+commit 3eac439ee6fd482e828934fb915a68ed134e0d20 (HEAD -> master)
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Wed Jul 20 20:51:41 2022 -0300
+Revert "Mudando nome do curso de Ansible" 
+
+aí se olha no nosso código -  (<li>Ansible</li> ) eu tenho aqui a nossa versão inicial 
+então dessa forma agente consegue ir desfazendo os nossos trabalhos, 
+disfazendo quaisquer besteira que agente tenha feito e isso permite que agente vá testando
+fazendo alguns testes...
+
+mais imagina que eu tenha feito alguns testes, eu escevi um código mais esse código ainda não está pronto
+pra ser commitado, que ele ainda está em um estado que ainda não funciona,só que eu não quero disfazer,
+chegou uma nova demanda , uma nova tarefa pra eu fazer ,será que eu consiga salvar de uma forma temporaria
+com o git ,tipo guardar pra depois,tipo depois eu volto a trabalhar nisso.
+
+__________________________________________''_____________________________________
+
+
+chegou uma nova tarefa e preciso guardando isso pra depois
+vai no vscode e altere o código  
+( <li>Ansible</li> ) para ( <li>Ansible: Infraestrutura como código</li> ) e salvei
+entrar no git bash e vamos ver sobre ( conceito stash ) no terminal dar comando git status 
+
+git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  modified:   index.html
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+oservação 
+eu vou salvar todas essas alterações que no caso é só no arquivo index.html
+pra um local temporario um local onde eu possa recuperar depois mais que não seja salvo um commit,
+que não seje gerado um log pra isso, então executar comando ( git stash ) , e isso salva 
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git stash
+Saved working directory and index state WIP on master: 3eac439 Revert "Mudando nome do curso de Ansible"
+
+depois git stash list
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git stash list
+stash@{0}: WIP on master: 3eac439 Revert "Mudando nome do curso de Ansible" 
+
+(blz agora vou alterar o de kubernets) 
+vou no vscode e no código 
+( <li>kubernetes</li> ) para ( <li>kubernetes: Introdução a orquestração de conteiners</li> ) e salvo
+
+vou no terminal git bash e dou um 
+git status 
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  modified:   index.html
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+depois 
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git add index.html
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git commit -m "Alterando o nome do curso de Kubernetes"
+[master 49b5c85] Alterando o nome do curso de Kubernetes
+ 1 file changed, 1 insertion(+), 1 deletion(-) e ok
+
+agora quero voltar a trabalha com as alterações no curso de (Ansible)
+vou no vscode, aí percebe que o curso de Kubernetes está atualizado
+
+<li>kubernetes: Introdução a orquestração de conteiners</li> (ok)
+mais o de Ansible não - <li>Ansible</li> (não) observe abaixo
+
+<li>Vagrant:Gerenciando máquinas virtual</li>
+<li>Docker: Criando conteiners sem dor de cabeça</li>
+<li>Ansible</li>
+<li>Curso Integração Contínua:Maturidade e produtividade no Desenvolvimento de Sofware</li>
+<li>kubernetes: Introdução a orquestração de conteiners</li>
+
+então agora eu quero pegar os dados que foram salvos no (stash) e trazer pro meu diretorio de trabalho
+pro meu local de trabalho no git bash, e tenho ( 2 opções )
+dou comando ( git stash list ) - vai aparecer abaixo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git stash list
+stash@{0}: WIP on master: 3eac439 Revert "Mudando nome do curso de Ansible"
+aí eu tenho uma lista do que eu posso trazer do que eu posso aplicar
+
+se eu der comando ( git stash apply ) e passar o numero da minha stash, exemplo ( stash@{0} ) ficaria
+( git stash apply 0 ) eu vou aplicar esse dado aqui,eu vou aplicar essas modificações , 
+só que essas modificações vão continuar aqui na minha (stash) exemplo abaixo
+( stash@{0}: WIP on master: 3eac439 Revert "Mudando nome do curso de Ansible" )
+
+então precisaria fazer depois o comando
+( git strash drop ) pra remover, só que se eu quizer fazer as 2 coisas ao mesmo tempo, ou seja pegar a 
+ultima alteração que foi adicionado no (stash) e já remover ela de lá ,aí eu posso chamar o comando
+
+( git stash pop ) - o git stash pop, tira da da stash a ultima alteração que foi adicionada lá e remove ela,
+tira mesmo , traz pra cá , então quando executo o comando (git stash pop) , 
+ele faz o merge com as modificações que agente já tem , e aplica as modificações que estavam salvas lá...
+
+exemplo abaixo 
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git stash pop
+Auto-merging index.html
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  modified:   index.html
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (7098a649935fd78bd8d6ddb804e986d85ef1773d)
+
+então repara no vscode no meu arquivo eu tenho os dados que tinha alterado sem precisar commitar
+eles tavam salvo temporariamente ; então fiz as modificações no código e salvei, 
+e agora sim estou pronto para commitar , aí vou no (terminal git bash) 
+e dou os comandos , ( git add index.html ) e ( git commit -m "Alterando nome do curso de Ansible" )
+vai ficar assim ,exemplo abaixo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git add index.html
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git commit -m "Alterando nome do curso de Ansible"
+[master b7f3d0c] Alterando nome do curso de Ansible
+ 1 file changed, 2 insertions(+), 2 deletions(-) (ok)
+
+lembrando é importante a gente sempre enviar, sempre manter atualizado o nosso repositorio remoto dando comando
+( git push local master )  ou  ( git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" )
+vai ficar assim exemplo abaixo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git push "C:\Users\nelio\Documents\projetogit-e-github\servidor"
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 1.19 KiB | 1.19 MiB/s, done.
+Total 10 (delta 3), reused 0 (delta 0), pack-reused 0
+To C:\Users\nelio\Documents\projetogit-e-github\servidor
+   d2c0c13..b7f3d0c  master -> master
+
+agora a gente tem ,vamos executar o git log aqui com uma linha só dando comando 
+( git log --oneline ) aí mostra que agente tem alguns commit ,
+exemplo abaixo 
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git log --oneline
+b7f3d0c (HEAD -> master) Alterando nome do curso de Ansible
+49b5c85 Alterando o nome do curso de Kubernetes
+3eac439 Revert "Mudando nome do curso de Ansible"
+8512526 Mudando nome do curso de Ansible
+d2c0c13 (origin/master) Corrigindo curso de vagrant
+babb30f Merge branch 'Lista'
+c1da453 Atualizando nome do curso Docker
+65482e1 (lista) Corrigindo nome do curso docker
+9f99562 (titulo) Cursos com Letras Maiúscula
+eba4764 adicionando Curso de Kubernetes
+c30edfb Lista no ínicio do título
+6a68ad6 Alterando título da página
+8912093 Renomeando curso de integração contínua
+5523d20 Renomeando curso de integração Contínua
+074c147 Adicionando .gitignore
+20ed5e4 salvando arquivo inde.html
+12af257 Acento adicionado no curso de integração contínua
+cb14953 index.html
+
+mais se eu quizer navegar , fazer com que o meu código fique no estado em que ele estava aqui , 
+na hora em que eu apliquei esse commit  ( babb30f Merge branch 'Lista' ) como é que eu posso fazer isso
+como eu posso viajar no tempo aqui pelo meu projeto ( proximo video ... )
+
+Salvando temporariamente
+PRÓXIMA ATIVIDADE
+Vimos como podemos utilizar git stash para armazenar temporariamente algumas de nossas alterações.
+Em que momento o stash parece útil?
+
+resposta : Alternativa correta! Quando precisamos pausar o desenvolvimento de alguma funcionalidade, 
+ou correção, antes de finalizar, talvez não seja interessante realizar um commit, 
+pois o nosso código pode não estar funcionando ainda. Nesse caso é interessante salvar 
+o trabalho para podermos voltar a ele depois.
+
+
+depois exluir isso na proxima aula
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git log --oneline
+b7f3d0c (HEAD -> master) Alterando nome do curso de Ansible
+49b5c85 Alterando o nome do curso de Kubernetes
+3eac439 Revert "Mudando nome do curso de Ansible"
+8512526 Mudando nome do curso de Ansible
+d2c0c13 (origin/master) Corrigindo curso de vagrant
+babb30f Merge branch 'Lista'
+c1da453 Atualizando nome do curso Docker
+65482e1 (lista) Corrigindo nome do curso docker
+9f99562 (titulo) Cursos com Letras Maiúscula
+eba4764 adicionando Curso de Kubernetes
+c30edfb Lista no ínicio do título
+6a68ad6 Alterando título da página
+8912093 Renomeando curso de integração contínua
+5523d20 Renomeando curso de integração Contínua
+074c147 Adicionando .gitignore
+20ed5e4 salvando arquivo inde.html
+12af257 Acento adicionado no curso de integração contínua
+cb14953 index.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

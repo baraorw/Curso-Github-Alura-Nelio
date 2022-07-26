@@ -1,0 +1,32 @@
+exibir log de forma especifica
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git log --pretty="format:%H"
+ec09127ecf4872db0366e11151d6cfc5e0512ec7
+c4565305e0603a2b86b6b51e924a49306f289288
+9735714899a97494fde7e944b05f66a5b992843a
+8fa31563535af10a26f6906085ad46096c899cb5
+f74baabbadce09caf76ae7f06152fb1555f9a41b
+31c4116341368e4dc1e4983cb983ed41de306a24
+2f3b40c9e2c984762be03b24a2c7a9c0c3ac284d
+f5f1c3334117ab8d80cc16930c22e5fa01889247
+a526a946308f1852336790a42580cbd52bb4e6a9
+git log --pretty="format:%H"
+exibe esse parametro e com os rash
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git log --pretty="format:%h %s"
+ec09127 Acento adicionado no curso de integração contínua
+c456530 numero 1 adicionado
+9735714 arquivo deletado
+8fa3156 Acento adicionado no curso de integração contínua
+f74baab Mudança acrescentanto nome git no final
+31c4116 Criando arquivo index.html com lista de cursos
+2f3b40c Adicionando .gitignore
+f5f1c33 Acento adicionado no curso de integração contínua
+a526a94 Criando arquivos index.html
+( git log --pretty="format:%H" colocando (%h) minusculo e (%s) com msn do commit )
+
+observação
+%h com h minusculo 
+%s com msn do commit 
+vai mostra o rash e a mensagem do commit (texto)

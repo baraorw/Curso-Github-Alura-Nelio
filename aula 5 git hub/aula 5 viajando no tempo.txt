@@ -1,0 +1,220 @@
+como posso viajar no tempo aqui no meu projeto
+
+no terminal git gash dar comando 
+git log --oneline - que quer dizer em uma unica linha, vai aparecer assim exemplo abaixo 
+
+$ git log --oneline
+b7f3d0c (HEAD -> master) Alterando nome do curso de Ansible
+49b5c85 Alterando o nome do curso de Kubernetes
+3eac439 Revert "Mudando nome do curso de Ansible"
+8512526 Mudando nome do curso de Ansible
+d2c0c13 (origin/master) Corrigindo curso de vagrant
+babb30f Merge branch 'Lista'
+c1da453 Atualizando nome do curso Docker
+65482e1 (lista) Corrigindo nome do curso docker
+9f99562 (titulo) Cursos com Letras Maiúscula
+eba4764 adicionando Curso de Kubernetes
+c30edfb Lista no ínicio do título
+6a68ad6 Alterando título da página
+8912093 Renomeando curso de integração contínua
+5523d20 Renomeando curso de integração Contínua
+074c147 Adicionando .gitignore
+20ed5e4 salvando arquivo inde.html
+12af257 Acento adicionado no curso de integração contínua
+cb14953 index.html
+
+a gente pode executar as manipulações em um commit somente com os 
+7 primeiros caracteres do rash, de um commit como unico , então quero navegar 
+pelo meu projeto até chegar no estado em que ele ficou quando apliquei esse 
+commit aqui ( babb30f Merge branch 'Lista' ), então eu quero navegar pra esse commit 
+( babb30f Merge branch 'Lista' ) então no terminal git bash ( copio e colo esse rash aqui babb30f )
+a gente já conversou em alguns videos passados que o comando 
+( git checkout ) - muda o estado da minha apliacação, seja desfazendo alterações,
+navegando entre branchs,ou navegando entre commits então posso executar o comando 
+git checkout pra esse commit que fica assim ( git chechout babb30f ) chegar até o 
+ponto em que meu código tava nesse commit , então dou comando 
+( git checkout babb30f ) atualizo dando enter e no caso vai ficar assim exemplo abaixo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio (master)
+$ git checkout babb30f
+Note: switching to 'babb30f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+git switch -c <new-branch-name>
+Or undo this operation with:
+git switch -
+Turn off this advice by setting config variable advice.detachedHead to false
+HEAD is now at babb30f Merge branch 'Lista'
+
+repara só que quando atualizo olha amsn quele diz pra gente
+to navegando pra esse commit ( switching to 'babb30f' ),
+agra a gente está num estado de ( 'detached HEAD' ) onde o commit está ou seja
+onde seu commit está, desanecssado do seu controle de versões , eu não t^em branch nenhuma mais,
+eu não to na minha master,não to na minha branch de lista, não to na branch de titulo ,
+eu to totalmente sezanexado ,eu to em 1 commit especifico , eu não to em linha bem definida de commit,
+uma linha de trabalho bem definida do git , 
+então eu posso mexer por aí , fazer algumas modicações experimentais e tal,mais eu posso simplesmente 
+descartar qualquer coisas que tiver nesse branch sem fazer mais nada , ou seja se eu voltar para master,
+tudo que eu commitar aqui vai ser ignorado , agora se eu quizer manter esses commits que eu fiz a partir 
+desse momento , apartir desse commit aqui ((babb30f...)) eu preciso criar um novo branch , e pra isso,
+vamos de novo utinicializar aquela nossa ferramenta de 
+
+( visualizing-git ) então vou na ferramentar e executar um clear,aí vou executar 3 commit aqui,
+git commit/git commit/git commit - agora eu quero voltar, pra esse meu segundo commit , pra ver 
+como meu projeto tava nesse ponto ( git checkout 2184044 ) que é o código que ele ta me exibindo aqui,
+e dou enter ,repara que o meu ( HEAD ) ou seja o estado do meu código está sendo exibido. 
+ta aqui nesse segundo commit, e se eu fizer qualquer alteração aqui , 
+ele vai pra um lugar que não tem nome,ele vai pra um branch inexistente, agora se eu fizer um 
+( git checkout master ) , acabou nunca mais chego nesse commit, esse commit fica desanexado das minha 
+linhas de desenvolvimento ( ok )
+agora se eu quizer voltar pra aquele commit alí , voltar pra nosso segundo commit,dando comando 
+( git checkout 2184044 ) - blz voltei pra cá.
+e se eu quizer fazer alterações que sejam salvas a partir daqui, antes eu preciso criar um branch que 
+vai ser modificado a partir desse commit ( 2184044 ) ....
+então apartir daqui eu vou dar comando 
+( git checkout -b novo-branch ) - e agora sim eu não to mais desanexado ,
+eu não to dezasociado da minha linha de desenvolvimento...
+
+e se eu fizer algum commit agora , repara que eu não to mais desanexado ,
+eu não to solto,eu to dentro de um novo branch .
+
+se eu quizer eu posso fazer o ( git checkout master ),que meu ( HEAD ) volta pra lá,
+mais se em algum momento eu quizer continuar o trabalho aqui ( novo-branch ) que criei ,eu posso fazer o 
+( git checkout novo-branch ) - perfeito ( ok )
+então eu consigo navegar entre os estados da minha aplicação 
+
+então aqui por exemplo no git bash eu to num  momento depois de ter 
+( atualizado o nome do Curso Docker ) - vai ficar assim observação abaixo
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/nelio ((babb30f...))
+$ git log --oneline
+babb30f (HEAD) Merge branch 'Lista'
+c1da453 Atualizando nome do curso Docker
+65482e1 (lista) Corrigindo nome do curso docker
+9f99562 (titulo) Cursos com Letras Maiúscula
+eba4764 adicionando Curso de Kubernetes
+c30edfb Lista no ínicio do título
+6a68ad6 Alterando título da página
+8912093 Renomeando curso de integração contínua
+5523d20 Renomeando curso de integração Contínua
+074c147 Adicionando .gitignore
+20ed5e4 salvando arquivo inde.html
+12af257 Acento adicionado no curso de integração contínua
+cb14953 index.html
+
+agora abrir vscode para conferir e vejo que o Docker foi atualizado
+<li>Vagrant</li>    - ainda está com nome antigo
+<li>Ansible</li>    - ainda está com nome antigo
+<li>kubernetes</li> - ainda está com nome antigo
+ainda não aconteceram essas atualizações ,pq eu voltei o estado do meu código,
+se eu quizer eu posso brincar, fazer o que eu quizer, e quando eu quero voltar,
+pro estado atual, pro estado real da minha aplicação eu posso simplesmente fazer o checkout pra master
+( git checkout master ) - que é o branch em que agente ta trabalhando agora
+
+agora vou no ( vscode ) então repara que agora já tenho todas as alterações aplicações de novo
+exemplo abaixo
+
+<li>Vagrant:Gerenciando máquinas virtual</li>
+<li>Docker: Criando conteiners sem dor de cabeça</li>
+<li>Ansible: Sua Infraestrutura como código</li>
+<li>Integração Contínua:Maturidade e produtividade no Desenvolvimento de Sofware</li>
+<li>kubernetes: Introdução a orquestração de conteiners</li>  
+
+então até aqui eu tenho praticamente tudo que é necessario pra um trabalho do dia a dia 
+com sistema de gerenciamento de versões ....
+
+mais como que eu informo, olha aqui eu tenho uma versão pronta do meu sistema, aqui 
+eu já tenho um entregavel digamos assim ,eu tenho uma relese,eu tenho uma versão pronta pra ser lançada,
+será que o git ajuda a gente a gerar esse tipo de coisas ,gerar um entregavel,gerar um projeto pronto,
+mais isso vamos ver no proximo video ...
+__________________________________________________________________________________________________________
+
+PRÓXIMA ATIVIDADE
+Checkout
+Já utilizamos em mais de uma ocasião o comando git checkout.
+Resumidamente, para que serve o comando git checkout?
+
+resposta - Alternativa correta! 
+A descrição do comando git checkout --help, 
+em uma tradução livre é: "Atualizar os arquivos na working tree para ficarem na versão especificada. 
+[...]". Basicamente, podemos deixar o nosso código no estado do último commit de uma branch, 
+de um commit específico, ou mesmo tags (que veremos adiante).
+__________________________________________________________________________________________________________
+
+Consolidando o seu conhecimento
+PRÓXIMA ATIVIDADE
+
+Chegou a hora de você pôr em prática o que foi visto na aula. Para isso, execute os passos listados abaixo.
+
+1) Na pasta que representa o seu projeto, faça uma alteração qualquer no arquivo index.html;
+2) Execute o git status e veja que há uma alteração para adicionar;
+3) Execute o comando git checkout -- index.html. Confira se sua alteração foi desfeita;
+4) Novamente, faça alguma alteração no arquivo index.html;
+5) Execute o comando git add index.html;
+6) Execute o comando git reset HEAD index.html para trazer o arquivo index.html de volta para 
+a HEAD do projeto (remover do stage, que é o que será enviado para o commit);
+7) Repita o passo 3;
+8) Faça mais uma vez alguma alteração no código;
+9) Execute o comando git add index.html e o comando git commit -m "Alterando o código" 
+para realizar um commit;
+10) Execute o comando git log e copie o hash deste commit recém criado;
+11) Rode o comando git revert {hash}, substituindo {hash} pelo hash que você copiou anteriormente;
+12) Confira que suas alterações foram desfeitas;
+13) Mude o nome do curso de Ansible para "Ansible: Infraestrutura como código";
+14) Execute o comando git stash para salvar estas alterações na stash;
+15) Altere o nome do curso de Kubernetes para "Kubernetes: Introdução a orquestração de containers";
+16) Execute o comando git add index.html e o comando git commit -m "Alterando o nome do curso de Kubernetes"
+para realizar um commit;
+17) Execute o comando git stash pop para trazer a última alteração da stash;
+18) Execute o comando git add index.html e o comando git commit -m "Alterando o nome do curso de Ansible" 
+para realizar um commit;
+19) Execute o comando git push local master para enviar todas as suas alterações;
+20) Execute o comando git log --oneline para ver os commits de forma resumida. 
+Copie o hash do commit de merge com a branch lista;
+21) Execute o comando git checkout {hash} substituindo {hash} pelo hash que você copiou;
+22) Veja que diversas alterações não estão mais presentes;
+23) Execute git checkout master para voltar à linha principal de desenvolvimento.
+__________________________________________________________________________________________________________ 
+
+O que aprendemos?
+PRÓXIMA ATIVIDADE
+Nesta aula, aprendemos:
+
+Que o Git pode nos ajudar a desfazer alterações que não vamos utilizar;
+
+Que, para desfazer uma alteração antes de adicioná-la para commit (com git add), 
+podemos utilizar o comando git checkout -- <arquivos>;
+
+Que, para desfazer uma alteração após adicioná-la para commit, antes precisamos executar o 
+git reset HEAD <arquivos> e depois podemos desfazê-las com git checkout -- <arquivos>;
+
+Que, para revertermos as alterações realizadas em um commit, o comando git revert pode ser a solução;
+Que o comando git revert gera um novo commit informando que alterações foram desfeitas;
+Que, para guardar um trabalho para retomá-lo posteriormente, podemos utilizar o git stash;
+Que, para visualizar quais alterações estão na stash, podemos utilizar o comando git stash list;
+Que, com o comando git stash apply <numero>, podemos aplicar uma alteração específica da stash;
+Que o comando git stash drop <numero> remove determinado item da stash;
+Que o comando git stash pop aplica e remove a última alteração que foi adicionada na stash;
+Que o git checkout serve para deixar a cópia do código da nossa aplicação no estado que desejarmos:
+git checkout <branch> deixa o código no estado de uma branch com o nome <branch>;
+git checkout <hash> deixa o código no estado do commit com o hash <hash>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

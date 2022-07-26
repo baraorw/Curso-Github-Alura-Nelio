@@ -1,0 +1,211 @@
+como criar arquivo index.html
+documentos/pasta git-e-github/nelio (e dentro de nelio vai está o arquivo index.html)
+no vs code - clicar em (file / open folder) e busca a pasta do arquivo e coloca o codigo
+ou arquivo ( index.html ) e salva com ( ctrl+s)
+
+agora para git monitorar o arquivo
+clica na pastas documentos/git-e-github/e nelio - clica com botão direito do mouse e 
+clica em gitbash para abrir o terminal
+
+no git bash - dar comandos - git init / git status / git add index.html / git add ./ encontra todos os arquivos,depois /
+git status / git commi -m "Criando arquivo index.html com lista de cursos" fim
+
+modificando arquivo
+modicou codigo / crtl+s para salvar no vscode / abre o terminal do git / git status / git add index.html / 
+git status - pra ver alteração /  git commit -m "Acento adicionado no curso de integração contínua" - dar enter
+
+vendo historico de modificações
+git log 
+commit 12af25716a4cc66e9ea3dce3b329514d33d6323c (HEAD -> master)
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Fri Jul 8 17:13:21 2022 -0300
+Acento adicionado no curso de integração contínua
+commit cb1495379adc818d2737bd2f6047c72f2d780705
+Author: baraorw <neliodejesus@outlook.com>
+Date:   Fri Jul 8 13:32:43 2022 -0300 index.html
+
+git log --oneline  -  esse comando mostra cada comite em uma unica linha de forma rersumida 
+(ex:pra mostra resumido e com menas informações
+git log -p - mostra todas as informações e as alterações 
+(ex: com mais informações ou seja mostra tudo completo o que foi feito)
+
+git log --pretty="format:%H"
+20ed5e4790648604f8b2d928d41e6be7ef9e236e
+12af25716a4cc66e9ea3dce3b329514d33d6323c
+cb1495379adc818d2737bd2f6047c72f2d780705  -  mostra só o hash
+
+git log --pretty="format:%h %s"
+20ed5e4 salvando arquivo inde.html
+12af257 Acento adicionado no curso de integração contínua   - com %h minusculo espaço e %s e porcento com s minusculo
+cb14953 index.html                                            ( ex: %h %s ) - mostra hash resumido e msn de commit
+
+git log --pretty="format:%h %s %ae" ( obs: com espaço %ae mostra no final o email do autor )
+20ed5e4 salvando arquivo inde.html neliodejesus@outlook.com
+12af257 Acento adicionado no curso de integração contínua neliodejesus@outlook.com
+cb14953 index.html neliodejesus@outlook.com
+
+git rm -- cached e nome do arquivo ex:index.html
+
+git config --local ou / git config --global - modificar configurações ex:nome - email - data e etc...
+
+( exemplos )git config --local user.name "Nélio de jesus" - para mostarar meu nome ( Nélio de Jesus ) depois dou comando
+            git config user.name - vai aparecer ( Nélio de Jesus )
+
+            git config user.email - "neliodejesus@outlook.com" e enter ,e depois
+            git config user.email - vai mostrar ( neliodejesus@outlook.com )
+
+ git add .gitignore - para ignorar um arquivo
+
+observação
+Devemos gerar um commit sempre que a nossa base de código está em um estado do qual gostaríamos de nos lembrar. 
+Nunca devemos ter commits de códigos que não funcionam, mas também não é interessante deixar para commitar apenas no final de uma feature.
+Essa pode ser uma discussão sem fim e cada empresa ou equipe pode seguir uma estratégia diferente. Estude sobre o assunto, entenda o que 
+faz mais sentido para você e sua equipe e seja feliz! :-D
+
+Nesta aula, aprendemos:
+
+Que um commit é a forma de salvar um estado ou versão do nosso código;
+Como adicionar arquivos para serem commitados com git add;
+Como commitar arquivos, utilizando o comando git commit;
+Como verificar o histórico de commits, através do git log e algumas de suas opções:
+git log --oneline
+git log -p
+git log --pretty="parametros de formatação"
+Como fazer o Git não monitorar arquivos, através do .gitignore
+Que não devemos realizar commit, ou seja, salvar um estado, da nossa aplicação que não esteja funcionando. 
+
+para ciar um servidor local na maquina
+abre terminal/cd ../aí vai subir uma pasta/depois mkdir sevidor/(cd servidor/) / git init --bare / 
+obs: nesse repositorio nao vou entrar para editar arquivos não vou fazer nada disso.
+ele só vai servir para armazenar alterações 
+( aí uso git init --bare ) esse parametro indica que esse repositorio ele é puro.é um repositorio que só contém 
+as alterações dos arquivos,não contém uma copia de cada um dos arquivos fisíca propriamente dita, de forma que eu 
+consiga acessar assim tão facilmente. ( isso traz algumas facilidades que permite esse repositorio como remoto em outra )
+
+C:/Users/nelio/Documents/projetogit-e-github/servidor/
+( agora aqui nos temos um caminho do nosso repositório que serve como nosso servidor )
+
+depois copia esse caminho ( C:/Users/nelio/Documents/projetogit-e-github/servidor/ ) 
+e voltar lá pra nossa pasta nelio onde está nosso projeto usando comando (cd ../nelio/)
+eu meu repositori (nelio) ,e agora eu tenho o segundo repositorio que é (servidor) 
+quero q meu (nelio)repositorio conheça esse endereço (servidor) para que futuramente envie meus dados pra lá (repositorio remoto)
+comando( git remote ) teoricamente nao acontece nada depois 
+comando ( git remote add local C:\Users\nelio\Documents\projetogit-e-github\servidor )comando mais o endereço do meu repositorio servidor/
+depois dar comando ( git remote ) vai aparecer ( local ) 
+
+git remote -v   - obs: para confirmar que meu endereço esteja correto,
+e mostra ainda que vai enviar e buscar dados desse caminho (fetch) e (push)
+
+local   C:UsersnelioDocumentsprojetogit-e-githubservidor (fetch) buscar de um lugar
+local   C:UsersnelioDocumentsprojetogit-e-githubservidor (push) e enviar de um lugar
+não é o meu caso pois é local tanto enviar ou buscar é do mesmo local ou seja pasta
+
+imaginando que tenha outra pessoa trabalhando com a gente exemplo a simone , então 
+cd .. voltar uma pasta / e criar uma pasta para simone / mkdir simone / cd simone 
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone (master) 
+imagina que essa pasta e da simone e simone quer trabalhar/para isso tem que clonar os arquivos
+
+git clone C:\Users\nelio\Documents\projetogit-e-github\servidor/ projeto
+Cloning into 'projeto'...
+warning: You appear to have cloned an empty repository.done.
+dar comando git clone mais caminho que é C:\Users\nelio\Documents\projetogit-e-github\servidor/ 
+e dar nome a uma nova pasta no caso projeto depois de espaço no caso vai ficar assim
+
+git clone C:\Users\nelio\Documents\projetogit-e-github\servidor/ projeto
+
+warning: You appear to have cloned an empty repository - parece que vc ta clonando um repositorio vazio
+
+mais eu não adicionei no repositorio do (nelio) o repositorio (servidor) sim; mais eu não enviei meus dados
+pra ele, no caso o servidor . então simone não tem nenhum acesso a nenhum dados então o repositório dela ainda tá vazio
+
+transferir meus dados nelio para servidor e depois pegar com a simone
+cd ../nelio/ depois / git remote / git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" ( aqui git push e o caminho )
+depois comando )cd ../simone/projeto) entrei na pasta simone projeto / (git remote) vai mostrar a pasta (origin) / 
+pra trocar esse nome origin dou o comando ( git remote rename origin local ) depois dou o comando
+( git remote ) aí vai aparecer ( local ) depois /  
+( git pull "C:\Users\nelio\Documents\projetogit-e-github\servidor" ) comando mais pasta a ser copiada - depois
+comando (ls) - vai mostrar o arquivo (index.html) e para garantir que o conteudo tá igual , 
+vou no (vscode) / file/add folder to workspace/vai abrir uma janela e clico em /simone/depois projeto e dou ctrl+s para salvar
+volto no terminal git bash e dou (git status) vai aparecer  (modified: index.html) /git add index.html/ 
+git commit -m "Renomeando curso de integração Contínua" / git push local master = para enviar arquivo modificado para servidor 
+no meu caso git push "C:\Users\nelio\Documents\projetogit-e-github\servidor" dou enter ,pronto enviei arquivo para o servidor local
+arquivo enviado (ok) . depois me logar como ( nelio ) dando comando 
+( cd .. "C:\Users\nelio\Documents\projetogit-e-github\nelio" ) = pronto agora 
+git pull "C:\Users\nelio\Documents\projetogit-e-github\servidor" = para puxar o arquivo atualizado da 
+( simone ) que enviou para o ( servidor ) pronto , 
+agora dando comando ( git log -p ) vejo o que foi alterado , obs: agora se abrir terminal do vscode e for na pasta 
+( nelio ) vejo as alterações com tudo sincronizado = ok
+
+CRIANDO MEU PRIMEIRO REPOSITORIO GITHUB
+entro no git / clico em new repositorio / dou um nome / e clicar em create / depois copio o endereço
+
+git remote add origin https://github.com/baraorw/curso-alura-github.git / e colo no git bash / dou comando depois
+git branch -M main       ( obs:main ou master )
+git push -u origin main  ( obs:main ou master )
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

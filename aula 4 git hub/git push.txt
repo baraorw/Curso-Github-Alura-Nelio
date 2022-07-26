@@ -1,0 +1,6 @@
+Git push: enviando alterações locais para o remoto!
+
+Git push para que serve?
+O Git push é um comando que possibilita que as alterações da sua máquina local sejam 
+enviadas para uma máquina remota.
+

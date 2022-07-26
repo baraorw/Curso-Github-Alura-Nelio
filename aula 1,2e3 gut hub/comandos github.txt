@@ -1,0 +1,74 @@
+gitdir - mostrar minha pasta que o git controle ,meu repositorio index.html
+
+git init - inicializar meu repositorio, vai informar aqui tem um repositorio
+
+git status - mostrar o que foi alterado , o que preciso salvar com o git, 
+mostra pra gente arquivos que ainda nao ta monitorando no caso é o ( index.html )
+
+git add - para fazer o git monitorar o arquivo e as mudanças 
+
+git add . - vai passar adicionar ou monitorar todos os arquivos da pasta atual 
+            nada acontece pq não tenho nenhum arquivo a adicionar
+
+porém git status - aí tenho uma mudança na minha saída
+
+clear - limpa a tela
+
+git rm - para remover esse arquivo (index.html) para o git pare de monitorar ele por enquanto
+
+root commit - esse é commit root , commit base dentro de uma (master)
+
+git commit -m  - para confirmar e salvar alterações
+
+git log - mostra diversas informações   OBS: vai aparecer (HEAD -> MASTER)
+ A PROXIMA INFORMAÇÃO é a (branch) o ramo em que esse commit se encontra
+
+HEAD - É O LOCAL ONDE AGENTE TÁ as alterações que agente fizer vai estar aqui no HEAD
+
+MASTER - COMENTAR MAIS A FRENTE , ( MASTER ) - 
+
+git config - modificar ou vizualizar configurações 
+
+git config --local   - para cada projeto
+
+git config -- global - para maquina esse computador todo 
+
+git log - para vizualizar diversas informações
+
+git log --oneline - para vizualizar todos os commit em uma unica linha resumidas
+
+git log -p - para além de ver as informações , PARA TBM ver as alterações 
+
+.gitignore - se eu quizer que o git ignore esse arquivo
+
+cd ..  - para subir uma pasta
+
+mkdir sevidor - criar uma nova pasta , e dar nome no caso o nome é ( sevidor )
+
+cd servidor/  - entrar dentro da pasta ( servidor )
+
+git init --bare  - esse parametro indica que esse repositorio é puro , só contém as alterações dos arquivos ,
+                   não contém uma copia de cada um dos arquivos fisica , de forma que eu consiga acessar tão facil assim,
+                   porém isso traz umas certa facilidades que agente adicione esse repositorio como remoto em outro 
+
+git config --local user.name "Seu nome aqui"
+git config --local user.email "seu@email.aqui"
+
+git repository init
+git init-repository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git config --local user.name "Nélio de Jesus"
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$ git config user.email
+neliodejesus@outlook.com
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Desktop/projeto github alura (master)
+$

@@ -1,0 +1,45 @@
+CRIANDO BRANCH E ´JA PASSANDO PARA ELA
+
+( git checkout -b Lista ) - cria a branch e já passa para ele direto no git bash
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (master)
+$ git checkout -b Lista
+fatal: a branch named 'Lista' already exists - aqui tá dizendo que  já tinha criado a brach lista
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (master)
+$ git checkout Lista
+Switched to branch 'Lista'
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (Lista)
+$ git status
+On branch Lista
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (Lista)
+$ git add index.html
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (Lista)
+$ git add .
+
+nelio@DESKTOP-CL50Q34 MINGW64 ~/Documents/projetogit-e-github/simone/projeto (Lista)
+$ git commit -m "adicionando Curso de Kubernetes"
+[Lista eba4764] adicionando Curso de Kubernetes
+ 1 file changed, 1 insertion(+) - (e ok)
+
+
+02
+Para saber mais: Ramificações
+PRÓXIMA ATIVIDADE
+
+Branches ("ramos") são utilizados para desenvolver funcionalidades isoladas umas das outras. A branch master é a branch "padrão" quando você cria um repositório.
+
+É interessante separar o desenvolvimento de funcionalidades em branches diferentes, para que as mudanças no código para uma não influencie no funcionamento de outra.
+
+Nesta aula, entenderemos melhor como trabalhar com estes ramos, mas é muito importante que você entenda seu propósito.
+
+Em outros treinamentos aqui na Alura, falaremos mais sobre estratégias para organizar suas branches, então não precisa se preocupar tanto com isso agora!
